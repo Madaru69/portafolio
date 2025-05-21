@@ -248,10 +248,24 @@ nav ul li a:hover {
     text-align: center;
 }
 
-.about-image img {
+/* .about-image img {
     border-radius: 8px;
     max-width: 100%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+ */
+
+.about-image img {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.03);
 }
 
 .skills h3 {
