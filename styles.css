@@ -129,7 +129,7 @@ nav ul li a:hover {
 /* Estilos para el Hero */
 .hero {
     position: relative;
-    padding: 6rem 0;
+    padding: 5rem 0;
     background: linear-gradient(135deg, #3a7bd5, #00d2ff);
     color: white;
     overflow: hidden;
