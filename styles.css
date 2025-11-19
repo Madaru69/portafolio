@@ -99,10 +99,10 @@ header {
 .hero {
     background: var(--gradient);
     color: white;
-    padding-top: 120px; /* Espacio para el header fijo */
+    padding-top: 120px;
     padding-bottom: 4rem;
     position: relative;
-    min-height: 100vh; /* Ocupa toda la pantalla */
+    min-height: 100vh;
     display: flex;
     align-items: center;
 }
@@ -129,9 +129,27 @@ header {
     margin-bottom: 1rem;
 }
 
-.hero-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; }
+/* .hero-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; } */
+.hero-title { 
+    font-size: 3.5rem; 
+    font-weight: 800; 
+    margin-bottom: 1.5rem; 
+    color: white;
+}
+.highlight { 
+    color: var(--secondary); 
+}
 .highlight { color: var(--secondary); }
-.hero-subtitle { font-size: 1.2rem; color: #cbd5e1; margin-bottom: 2.5rem; max-width: 90%; }
+
+/* .hero-subtitle { font-size: 1.2rem; color: #cbd5e1; margin-bottom: 2.5rem; max-width: 90%; } */
+
+.hero-subtitle { 
+    font-size: 1.2rem; 
+    color: rgb(203, 213, 225);
+    margin-bottom: 2.5rem; 
+    max-width: 90%; 
+}
+
 .hero-buttons { display: flex; gap: 1rem; }
 
 /* About Section */
@@ -142,7 +160,7 @@ header {
     height: 300px; 
     object-fit: cover; 
     border-radius: 20px; 
-    box-shadow: 20px 20px 0 var(--bg-light), 20px 20px 0 2px var(--secondary);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Sombra más estándar */
 }
 
 .certifications { margin-top: 2rem; padding: 1.5rem; background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--secondary); }
@@ -224,3 +242,4 @@ footer { background: var(--primary); color: white; text-align: center; padding: 
     .about-image img { margin-bottom: 2rem; }
     .certifications { text-align: left; }
 }
+
