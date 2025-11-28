@@ -135,7 +135,7 @@ header {
 
 /* Foto Circular con borde brillante (SOLUCIÓN A TU FOTO) */
 .about-image { position: relative; width: 250px; height: 250px; }
-.about-image img {
+/* .about-image img {
     width: 100%; height: 100%;
     border-radius: 50%;
     object-fit: cover;
@@ -144,8 +144,26 @@ header {
     z-index: 2;
     filter: grayscale(20%); /* Un toque más serio */
 }
-.about-image img:hover { filter: grayscale(0%); }
+*/
 
+.about-image img {
+    width: 100%; 
+    height: 100%; 
+    border-radius: 60% / 40%; /* Un valor para horizontal, otro para vertical */
+    object-fit: cover;
+    border: 2px solid var(--secondary);
+    position: relative;
+    z-index: 2;
+    filter: grayscale(20%);
+}
+
+.about-image { 
+    position: relative; 
+    width: 300px; /* Más ancho */
+    height: 250px; /* Menos alto, para un óvalo horizontal */
+}
+
+.about-image img:hover { filter: grayscale(0%); }
 /* Efecto orbita decorativa detrás de la foto */
 .orbit {
     position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px;
@@ -240,3 +258,4 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border);
     .nav-links { display: none; } /* Necesita el JS del menú anterior */
     .hamburger { display: block; color: #fff; font-size: 1.5rem; cursor: pointer; }
 }
+
