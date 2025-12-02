@@ -182,7 +182,7 @@ header {
     border: 1px solid rgba(56, 139, 253, 0.2);
 }
 
-/* --- ESTILOS CERTIFICACIÓN (CORREGIDOS) --- */
+/* --- ESTILOS CERTIFICACIÓN (Con soporte imagen local) --- */
 .cert-container {
     margin-top: 2rem;
     padding: 1.5rem;
@@ -211,23 +211,22 @@ header {
     transition: transform 0.2s;
 }
 
-/* BLINDAJE DE IMAGEN: Tamaño fijo que no se encoge */
 .cert-img-wrapper {
-    flex-shrink: 0; /* IMPORTANTE: No deja que la caja se encoja */
-    width: 80px;    /* Ancho fijo */
-    height: 80px;   /* Alto fijo */
-    display: flex;
+    flex-shrink: 0; 
+    width: 80px;    
+    height: 80px;   
+    display: flex;  
     align-items: center;
     justify-content: center;
     overflow: hidden; 
-    border-radius: 50%; /* Circular */
-    background: #161b22; /* Fondo por si la imagen tiene transparencia */
+    border-radius: 50%; 
+    background: #161b22; 
 }
 
 .azure-badge {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ajusta la imagen sin recortarla */
+    object-fit: contain;
 }
 
 .cert-details {
@@ -255,8 +254,8 @@ header {
 
 .projects-grid { 
     display: grid; 
-    /* Ajuste para que quepan 4 tarjetas bien distribuidas */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    /* Ajuste para que quepan tarjetas bien distribuidas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 2rem; 
 }
 
