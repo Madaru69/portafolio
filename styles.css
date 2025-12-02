@@ -182,7 +182,7 @@ header {
     border: 1px solid rgba(56, 139, 253, 0.2);
 }
 
-/* --- ESTILOS CERTIFICACIÓN (Con soporte imagen local) --- */
+/* --- ESTILOS CERTIFICACIÓN --- */
 .cert-container {
     margin-top: 2rem;
     padding: 1.5rem;
@@ -254,7 +254,6 @@ header {
 
 .projects-grid { 
     display: grid; 
-    /* Ajuste para que quepan tarjetas bien distribuidas */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 2rem; 
 }
@@ -266,7 +265,7 @@ header {
     border-radius: 8px;
     position: relative;
     transition: 0.3s;
-    height: 100%; /* Asegura que todas tengan la misma altura */
+    height: 100%; 
     display: flex;
     flex-direction: column;
 }
@@ -277,7 +276,6 @@ header {
     box-shadow: 0 5px 30px rgba(0,0,0,0.5);
 }
 
-/* Para empujar el contenido hacia abajo en tarjetas de servicio */
 .service-card .project-info {
     flex: 1;
     display: flex;
@@ -285,7 +283,7 @@ header {
 }
 
 .service-card .tags {
-    margin-top: auto; /* Empuja los tags al fondo */
+    margin-top: auto; 
 }
 
 
@@ -325,6 +323,20 @@ header {
 .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
 
 .info-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+
+/* Enlace de WhatsApp Clicable */
+.contact-action-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-action-link:hover {
+    color: var(--secondary);
+}
 
 /* Iconos de contacto normales */
 .contact .info-item i {
