@@ -182,22 +182,23 @@ header {
     border: 1px solid rgba(56, 139, 253, 0.2);
 }
 
-/* --- ESTILOS CERTIFICACIÓN (CREDLY) --- */
+/* --- ESTILOS CERTIFICACIÓN (CORREGIDOS) --- */
 .cert-container {
     margin-top: 2rem;
     padding: 1.5rem;
-    background: #0d1117; /* Fondo oscuro */
+    background: #0d1117; 
     border: 1px solid var(--border);
     border-radius: 8px;
     display: inline-block;
-    max-width: 100%;
+    max-width: 450px; /* Ancho máximo controlado */
+    width: 100%;
 }
 
 .cert-heading {
     color: #fff;
     font-family: var(--font-mono);
     font-size: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     border-bottom: 1px solid var(--border);
     padding-bottom: 0.5rem;
 }
@@ -210,13 +211,16 @@ header {
     transition: transform 0.2s;
 }
 
-.cert-link:hover {
-    transform: translateX(5px);
+/* Contenedor de la imagen para evitar que se aplaste */
+.cert-img-wrapper {
+    flex-shrink: 0; /* IMPORTANTE: No deja que la imagen se encoja */
+    width: 80px;
+    height: 80px;
 }
 
 .azure-badge {
-    width: 80px;
-    height: 80px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 
@@ -229,7 +233,8 @@ header {
     color: #fff;
     font-weight: 600;
     font-size: 1rem;
-    margin-bottom: 0.3rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
 }
 
 .badge-verify {
@@ -241,9 +246,11 @@ header {
 
 /* --- EXPERIENCIA & SERVICIOS (TARJETAS) --- */
 .projects, .github-section, .services { padding: 5rem 0; }
+
 .projects-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    /* Ajuste para que quepan 4 tarjetas bien distribuidas */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 2rem; 
 }
 
@@ -254,6 +261,9 @@ header {
     border-radius: 8px;
     position: relative;
     transition: 0.3s;
+    height: 100%; /* Asegura que todas tengan la misma altura */
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover, .repo-card:hover, .service-card:hover {
@@ -261,6 +271,18 @@ header {
     border-color: var(--accent);
     box-shadow: 0 5px 30px rgba(0,0,0,0.5);
 }
+
+/* Para empujar el contenido hacia abajo en tarjetas de servicio */
+.service-card .project-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card .tags {
+    margin-top: auto; /* Empuja los tags al fondo */
+}
+
 
 .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
 .card-icon { font-size: 2rem; color: var(--secondary); }
@@ -347,7 +369,8 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border);
     .about-text { text-align: center; }
     .tech-stack-mini { justify-content: center; }
     
-    .cert-link { flex-direction: column; text-align: center; gap: 0.5rem; }
+    .cert-link { text-align: left; } /* Mantiene el alineamiento a la izquierda en móvil */
+    .cert-container { margin: 2rem auto; }
     
     .nav-links {
         position: fixed;
