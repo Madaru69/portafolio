@@ -8,7 +8,7 @@
     --secondary: #58a6ff;     /* Azul eléctrico VS Code */
     --border: #30363d;        /* Bordes sutiles */
     --font-mono: 'Fira Code', monospace; /* Fuente tipo código */
-    --font-sans: 'Inter', sans-serif;
+    --font-sans: 'Inter', sans-serif; /* Fuente legible para textos */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -19,6 +19,14 @@ body {
     font-family: var(--font-sans);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+/* Mejora de legibilidad general */
+p, .desc {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    color: #aab4be;
+    line-height: 1.7;
 }
 
 /* Fondo de cuadrícula sutil (Grid Tech) */
@@ -131,8 +139,10 @@ header {
 }
 .btn-outline:hover { border-color: var(--secondary); color: var(--secondary); }
 
-/* --- SECCIÓN SOBRE MI --- */
-.about { padding: 6rem 0; }
+/* --- SECCIÓN SOBRE MI (Más espaciado QA) --- */
+.about, .projects, .github-section, .services, .contact { 
+    padding: 8rem 0; /* Aumentado para mejor diseño */
+}
 .about-content { display: flex; align-items: center; gap: 4rem; }
 
 /* FOTO CIRCULAR CORRECTA */
@@ -186,7 +196,7 @@ header {
 .cert-container {
     margin-top: 2rem;
     padding: 1.5rem;
-    background: #0d1117; 
+    background: rgba(13, 17, 23, 0.7); /* Glass */
     border: 1px solid var(--border);
     border-radius: 8px;
     display: inline-block;
@@ -249,9 +259,7 @@ header {
 }
 
 
-/* --- EXPERIENCIA & SERVICIOS (TARJETAS) --- */
-.projects, .github-section, .services { padding: 5rem 0; }
-
+/* --- EXPERIENCIA & SERVICIOS (TARJETAS GLASSMORPHISM) --- */
 .projects-grid { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -259,8 +267,9 @@ header {
 }
 
 .project-card, .repo-card, .service-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: rgba(22, 27, 34, 0.7); /* QA: Fondo semi-transparente */
+    backdrop-filter: blur(10px); /* QA: Efecto borroso */
+    border: 1px solid rgba(48, 54, 61, 0.7);
     padding: 2rem;
     border-radius: 8px;
     position: relative;
@@ -268,12 +277,21 @@ header {
     height: 100%; 
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .project-card:hover, .repo-card:hover, .service-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent);
-    box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+    transform: translateY(-7px); /* QA: Más movimiento */
+    border-color: var(--secondary); /* QA: Borde brillante */
+    box-shadow: 0 10px 40px -10px rgba(88, 166, 255, 0.2); /* QA: Resplandor */
+}
+
+/* QA: Títulos más definidos */
+.project-info h3, .repo-card h3, .service-card h3 { 
+    font-size: 1.3rem; 
+    margin-bottom: 0.5rem; 
+    color: #fff; 
+    letter-spacing: -0.5px;
 }
 
 .service-card .project-info {
@@ -286,12 +304,10 @@ header {
     margin-top: auto; 
 }
 
-
 .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
 .card-icon { font-size: 2rem; color: var(--secondary); }
 .year { font-family: var(--font-mono); font-size: 0.8rem; color: #8b949e; background: #21262d; padding: 2px 8px; border-radius: 4px; }
 
-.project-info h3, .repo-card h3, .service-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: #fff; }
 .role { color: var(--accent); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 1rem; }
 .desc { color: #8b949e; font-size: 0.95rem; margin-bottom: 1.5rem; }
 
@@ -363,7 +379,7 @@ header {
 .social-links a { color: var(--text-main); font-size: 1.5rem; margin-right: 1rem; }
 .social-links a:hover { color: var(--secondary); transform: scale(1.1); }
 
-.contact-form { background: var(--bg-dark); padding: 2rem; border: 1px solid var(--border); border-radius: 8px; }
+.contact-form { background: rgba(13, 17, 23, 0.7); padding: 2rem; border: 1px solid var(--border); border-radius: 8px; }
 .form-group label { display: block; font-family: var(--font-mono); color: var(--secondary); font-size: 0.85rem; margin-bottom: 0.5rem; }
 .form-group input, .form-group textarea {
     width: 100%; background: #0d1117; border: 1px solid var(--border);
