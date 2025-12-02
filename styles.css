@@ -182,7 +182,7 @@ header {
     border: 1px solid rgba(56, 139, 253, 0.2);
 }
 
-/* --- ESTILOS CERTIFICACIÓN (CORREGIDOS) --- */
+/* --- ESTILOS CERTIFICACIÓN (CORREGIDOS Y BLINDADOS) --- */
 .cert-container {
     margin-top: 2rem;
     padding: 1.5rem;
@@ -190,7 +190,7 @@ header {
     border: 1px solid var(--border);
     border-radius: 8px;
     display: inline-block;
-    max-width: 450px; /* Ancho máximo controlado */
+    max-width: 450px; 
     width: 100%;
 }
 
@@ -211,11 +211,16 @@ header {
     transition: transform 0.2s;
 }
 
-/* Contenedor de la imagen para evitar que se aplaste */
+/* BLINDAJE DE IMAGEN: Tamaño fijo que no se encoge */
 .cert-img-wrapper {
-    flex-shrink: 0; /* IMPORTANTE: No deja que la imagen se encoja */
-    width: 80px;
-    height: 80px;
+    flex-shrink: 0; /* IMPORTANTE: No deja que la caja se encoja */
+    width: 80px;    /* Ancho fijo */
+    height: 80px;   /* Alto fijo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Corta si algo sale mal */
+    border-radius: 50%; /* Mantiene la forma circular */
 }
 
 .azure-badge {
@@ -369,7 +374,7 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border);
     .about-text { text-align: center; }
     .tech-stack-mini { justify-content: center; }
     
-    .cert-link { text-align: left; } /* Mantiene el alineamiento a la izquierda en móvil */
+    .cert-link { text-align: left; } 
     .cert-container { margin: 2rem auto; }
     
     .nav-links {
