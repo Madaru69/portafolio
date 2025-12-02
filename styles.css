@@ -216,17 +216,24 @@ header {
     flex-shrink: 0; /* IMPORTANTE: No deja que la caja se encoja */
     width: 80px;    /* Ancho fijo */
     height: 80px;   /* Alto fijo */
-    display: flex;
+    display: flex;  /* Centrado Flexbox */
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Corta si algo sale mal */
-    border-radius: 50%; /* Mantiene la forma circular */
+    overflow: hidden; 
+    border-radius: 50%; /* Circular */
+    background: #161b22; /* Fondo por si la imagen es transparente */
 }
 
 .azure-badge {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+/* Estilo para el icono de respaldo si la imagen falla */
+.backup-icon {
+    font-size: 2.5rem;
+    color: var(--secondary);
 }
 
 .cert-details {
