@@ -2,7 +2,7 @@
 :root {
     --bg-dark: #0d1117;       /* Fondo estilo GitHub Dark */
     --bg-card: #161b22;       /* Tarjetas un poco más claras */
-    --text-main: #c9d1d9;     /* Blanco apagado (no cansa la vista) */
+    --text-main: #c9d1d9;     /* Blanco apagado */
     --accent: #2ea043;        /* Verde GitHub/Matrix */
     --accent-glow: #2ea04380; /* Resplandor del verde */
     --secondary: #58a6ff;     /* Azul eléctrico VS Code */
@@ -73,20 +73,19 @@ header {
 }
 .code-link:hover { color: var(--secondary); text-shadow: 0 0 10px rgba(88, 166, 255, 0.5); }
 
-/* --- HERO SECTION (Sin imagen grande) --- */
+/* --- HERO SECTION --- */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 5rem; /* Asegura espacio si el menú es fijo */
+    padding-top: 5rem;
 }
 
 .hero-content { max-width: 800px; }
 .hero-greeting { color: var(--accent); font-family: var(--font-mono); margin-bottom: 1rem; }
 .hero-title { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; }
 
-/* Efecto cursor parpadeante */
 .cursor { 
     display: inline-block; 
     background-color: var(--secondary); 
@@ -98,7 +97,7 @@ header {
 .txt-type { color: var(--secondary); }
 .hero-subtitle { font-size: 1.1rem; color: #8b949e; margin-bottom: 2.5rem; max-width: 600px; }
 
-/* Botones Cyberpunk */
+/* Botones */
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
@@ -136,20 +135,20 @@ header {
 .about { padding: 6rem 0; }
 .about-content { display: flex; align-items: center; gap: 4rem; }
 
-/* Foto: Contenedor Cuadrado para Círculo Perfecto */
+/* FOTO CIRCULAR CORRECTA */
 .about-image { 
     position: relative; 
-    width: 280px;  /* Ancho */
-    height: 280px; /* Alto igual al ancho para círculo */
+    width: 280px;  
+    height: 280px; 
     flex-shrink: 0;
 }
 
 .about-image img {
     width: 100%; 
     height: 100%; 
-    border-radius: 50%; /* Esto garantiza la forma circular */
+    border-radius: 50%; /* CIRCULO PERFECTO */
     object-fit: cover;
-    object-position: center 30%; /* Ajustado para retratos */
+    object-position: center 30%; 
     border: 2px solid var(--secondary);
     position: relative;
     z-index: 2;
@@ -159,7 +158,6 @@ header {
 
 .about-image img:hover { filter: grayscale(0%); }
 
-/* Efecto orbita decorativa detrás de la foto */
 .orbit {
     position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px;
     border-radius: 50%;
@@ -184,45 +182,64 @@ header {
     border: 1px solid rgba(56, 139, 253, 0.2);
 }
 
-/* Estilos para el Badge de Certificación */
+/* --- ESTILOS CERTIFICACIÓN (CREDLY) --- */
 .cert-container {
-    margin-top: 2.5rem;
-    padding: 1rem;
-    background: var(--bg-card); /* Fondo oscuro de tarjeta */
-    border-radius: 8px;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #0d1117; /* Fondo oscuro */
     border: 1px solid var(--border);
-    max-width: 350px;
+    border-radius: 8px;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.cert-heading {
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
 }
 
 .cert-link {
     display: flex;
     align-items: center;
-    gap: 15px;
-    color: var(--text-main);
-    text-align: left;
-    margin-top: 1rem;
+    gap: 1.5rem;
     text-decoration: none;
+    transition: transform 0.2s;
 }
 
-.cert-link:hover .badge-title {
-    color: var(--secondary); /* Resaltar texto al pasar el mouse */
+.cert-link:hover {
+    transform: translateX(5px);
 }
 
 .azure-badge {
-    width: 70px; /* Tamaño de la insignia */
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 120, 212, 0.4); /* Sombra azul de Azure */
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.cert-details {
+    display: flex;
+    flex-direction: column;
 }
 
 .badge-title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.badge-verify {
+    color: var(--secondary);
+    font-size: 0.85rem;
     font-family: var(--font-mono);
-    font-size: 0.95rem;
-    font-weight: 500;
 }
 
 
-/* --- EXPERIENCIA & REPOS (TARJETAS) --- */
+/* --- EXPERIENCIA & SERVICIOS (TARJETAS) --- */
 .projects, .github-section, .services { padding: 5rem 0; }
 .projects-grid { 
     display: grid; 
@@ -253,49 +270,56 @@ header {
 .role { color: var(--accent); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 1rem; }
 .desc { color: #8b949e; font-size: 0.95rem; margin-bottom: 1.5rem; }
 
+/* Estilo para el link de Superprof */
+.superprof-link {
+    color: var(--accent);
+    font-weight: 600;
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
 .tags { margin-top: 1rem; }
 .tags span { 
     display: inline-block; font-size: 0.75rem; 
     color: var(--text-main); border: 1px solid var(--border); 
     padding: 2px 8px; border-radius: 20px; margin-right: 5px; 
-    margin-bottom: 5px; /* Para que no se peguen en varias líneas */
+    margin-bottom: 5px; 
 }
 
-/* Repositorios Específicos */
+/* Repositorios */
 .repo-card { display: flex; flex-direction: column; height: 100%; }
 .repo-stats { margin-top: auto; display: flex; gap: 15px; color: #8b949e; font-size: 0.85rem; font-family: var(--font-mono); }
 .repo-header a { color: var(--text-main); }
 .repo-header a:hover { color: var(--accent); }
 
-
-/* --- CONTACTO & FORMULARIO --- */
+/* --- CONTACTO --- */
 .contact { background: #161b22; border-top: 1px solid var(--border); }
 .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
 
 .info-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
 
-/* Estilo para todos los iconos de contacto (círculo oscuro) */
+/* Iconos de contacto normales */
 .contact .info-item i {
     width: 40px; 
     height: 40px; 
-    background: var(--bg-dark); /* Fondo oscuro para el icono */
+    background: var(--bg-dark); 
     display: flex; 
     align-items: center; 
     justify-content: center; 
     border-radius: 50%; 
-    color: var(--secondary); /* Color del icono */
+    color: var(--secondary); 
     font-size: 1.2rem;
     flex-shrink: 0;
 }
 
-/* Sobreescribe el estilo del ícono de WhatsApp (estilo clásico) */
+/* WHATSAPP VERDE CLÁSICO */
 .contact .info-item .whatsapp-icon {
-    background: #25D366 !important; /* Verde de WhatsApp */
+    background: #25D366 !important; /* Verde oficial */
     color: white !important;
     font-size: 1.5rem !important;
     box-shadow: 0 0 10px rgba(37, 211, 102, 0.4);
 }
-
 
 .social-links a { color: var(--text-main); font-size: 1.5rem; margin-right: 1rem; }
 .social-links a:hover { color: var(--secondary); transform: scale(1.1); }
@@ -322,9 +346,9 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border);
     .about-image { margin: 0 auto 2rem auto; }
     .about-text { text-align: center; }
     .tech-stack-mini { justify-content: center; }
-    .cert-container { max-width: 100%; margin: 2rem auto; }
     
-    /* Menú Móvil */
+    .cert-link { flex-direction: column; text-align: center; gap: 0.5rem; }
+    
     .nav-links {
         position: fixed;
         background: var(--bg-dark);
@@ -341,16 +365,10 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border);
         padding-top: 0;
     }
 
-    /* Clase añadida por JS para mostrar el menú */
-    .nav-links.active {
-        transform: translateX(0%); 
-    }
-    
+    .nav-links.active { transform: translateX(0%); }
     .nav-links li { margin: 1.5rem 0; }
     .code-link { font-size: 1.5rem; color: #fff; }
     .hamburger { display: block; color: #fff; font-size: 1.5rem; cursor: pointer; z-index: 1001; }
-    .hamburger.toggle .fa-bars:before { content: "\f00d"; } /* Icono X */
-    
     .hero-buttons { display: flex; flex-direction: column; gap: 1rem; }
     .btn-outline { margin-left: 0; }
 }
