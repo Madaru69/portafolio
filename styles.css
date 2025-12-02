@@ -79,6 +79,7 @@ header {
     display: flex;
     align-items: center;
     position: relative;
+    padding-top: 5rem; /* Asegura espacio si el menú es fijo */
 }
 
 .hero-content { max-width: 800px; }
@@ -107,6 +108,8 @@ header {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    text-align: center;
+    transition: 0.3s;
 }
 
 .btn-primary {
@@ -133,23 +136,12 @@ header {
 .about { padding: 6rem 0; }
 .about-content { display: flex; align-items: center; gap: 4rem; }
 
-/* Foto Circular con borde brillante (SOLUCIÓN A TU FOTO) */
-.about-image { position: relative; width: 250px; height: 250px; }
-/* .about-image img {
-    width: 100%; height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--secondary);
-    position: relative;
-    z-index: 2;
-    filter: grayscale(20%); /* Un toque más serio */
-}
-
+/* Foto: Contenedor Cuadrado para Círculo Perfecto */
 .about-image { 
     position: relative; 
-    width: 280px;  /* Aumento el tamaño ligeramente para que sea más notable */
-    height: 280px; /* IMPORTANTE: Alto igual al ancho para círculo */
-    margin-right: 20px; /* Separación de 20px entre la imagen y el texto */
+    width: 280px;  /* Ancho */
+    height: 280px; /* Alto igual al ancho para círculo */
+    flex-shrink: 0;
 }
 
 .about-image img {
@@ -157,11 +149,12 @@ header {
     height: 100%; 
     border-radius: 50%; /* Esto garantiza la forma circular */
     object-fit: cover;
-    object-position: center 30%; /* Ajusta el centro de la foto (30% mueve el recorte hacia la parte superior) */
+    object-position: center 30%; /* Ajustado para retratos */
     border: 2px solid var(--secondary);
     position: relative;
     z-index: 2;
-    filter: grayscale(20%);
+    filter: grayscale(20%); 
+    transition: filter 0.3s;
 }
 
 .about-image img:hover { filter: grayscale(0%); }
@@ -169,12 +162,11 @@ header {
 /* Efecto orbita decorativa detrás de la foto */
 .orbit {
     position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px;
-    border-radius: 50%; /* Mantener circular */
+    border-radius: 50%;
     border: 1px dashed var(--border);
     animation: spin 10s linear infinite;
     z-index: 1;
 }
-
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
 .section-title { font-size: 2rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 10px; }
@@ -192,11 +184,53 @@ header {
     border: 1px solid rgba(56, 139, 253, 0.2);
 }
 
-/* --- EXPERIENCIA & REPOS (TARJETAS) --- */
-.projects, .github-section { padding: 5rem 0; }
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+/* Estilos para el Badge de Certificación */
+.cert-container {
+    margin-top: 2.5rem;
+    padding: 1rem;
+    background: var(--bg-card); /* Fondo oscuro de tarjeta */
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    max-width: 350px;
+}
 
-.project-card, .repo-card {
+.cert-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-main);
+    text-align: left;
+    margin-top: 1rem;
+    text-decoration: none;
+}
+
+.cert-link:hover .badge-title {
+    color: var(--secondary); /* Resaltar texto al pasar el mouse */
+}
+
+.azure-badge {
+    width: 70px; /* Tamaño de la insignia */
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 120, 212, 0.4); /* Sombra azul de Azure */
+}
+
+.badge-title {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+
+/* --- EXPERIENCIA & REPOS (TARJETAS) --- */
+.projects, .github-section, .services { padding: 5rem 0; }
+.projects-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2rem; 
+}
+
+.project-card, .repo-card, .service-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
     padding: 2rem;
@@ -205,7 +239,7 @@ header {
     transition: 0.3s;
 }
 
-.project-card:hover, .repo-card:hover {
+.project-card:hover, .repo-card:hover, .service-card:hover {
     transform: translateY(-5px);
     border-color: var(--accent);
     box-shadow: 0 5px 30px rgba(0,0,0,0.5);
@@ -215,14 +249,16 @@ header {
 .card-icon { font-size: 2rem; color: var(--secondary); }
 .year { font-family: var(--font-mono); font-size: 0.8rem; color: #8b949e; background: #21262d; padding: 2px 8px; border-radius: 4px; }
 
-.project-info h3, .repo-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: #fff; }
+.project-info h3, .repo-card h3, .service-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: #fff; }
 .role { color: var(--accent); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 1rem; }
 .desc { color: #8b949e; font-size: 0.95rem; margin-bottom: 1.5rem; }
 
+.tags { margin-top: 1rem; }
 .tags span { 
     display: inline-block; font-size: 0.75rem; 
     color: var(--text-main); border: 1px solid var(--border); 
     padding: 2px 8px; border-radius: 20px; margin-right: 5px; 
+    margin-bottom: 5px; /* Para que no se peguen en varias líneas */
 }
 
 /* Repositorios Específicos */
@@ -231,12 +267,36 @@ header {
 .repo-header a { color: var(--text-main); }
 .repo-header a:hover { color: var(--accent); }
 
+
 /* --- CONTACTO & FORMULARIO --- */
 .contact { background: #161b22; border-top: 1px solid var(--border); }
 .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
 
 .info-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
-.info-item i { color: var(--accent); font-size: 1.2rem; }
+
+/* Estilo para todos los iconos de contacto (círculo oscuro) */
+.contact .info-item i {
+    width: 40px; 
+    height: 40px; 
+    background: var(--bg-dark); /* Fondo oscuro para el icono */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 50%; 
+    color: var(--secondary); /* Color del icono */
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+/* Sobreescribe el estilo del ícono de WhatsApp (estilo clásico) */
+.contact .info-item .whatsapp-icon {
+    background: #25D366 !important; /* Verde de WhatsApp */
+    color: white !important;
+    font-size: 1.5rem !important;
+    box-shadow: 0 0 10px rgba(37, 211, 102, 0.4);
+}
+
+
 .social-links a { color: var(--text-main); font-size: 1.5rem; margin-right: 1rem; }
 .social-links a:hover { color: var(--secondary); transform: scale(1.1); }
 
@@ -255,11 +315,42 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border);
 
 /* Responsive */
 @media (max-width: 768px) {
+    .hero { padding-top: 80px; }
     .hero-title { font-size: 2rem; }
-    .contact-content, .about-content { grid-template-columns: 1fr; display: block; text-align: center; }
+    .contact-content { grid-template-columns: 1fr; display: flex; flex-direction: column; gap: 2rem; }
+    .about-content { grid-template-columns: 1fr; display: block; text-align: center; }
     .about-image { margin: 0 auto 2rem auto; }
-    .nav-links { display: none; } /* Necesita el JS del menú anterior */
-    .hamburger { display: block; color: #fff; font-size: 1.5rem; cursor: pointer; }
+    .about-text { text-align: center; }
+    .tech-stack-mini { justify-content: center; }
+    .cert-container { max-width: 100%; margin: 2rem auto; }
+    
+    /* Menú Móvil */
+    .nav-links {
+        position: fixed;
+        background: var(--bg-dark);
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+        padding-top: 0;
+    }
+
+    /* Clase añadida por JS para mostrar el menú */
+    .nav-links.active {
+        transform: translateX(0%); 
+    }
+    
+    .nav-links li { margin: 1.5rem 0; }
+    .code-link { font-size: 1.5rem; color: #fff; }
+    .hamburger { display: block; color: #fff; font-size: 1.5rem; cursor: pointer; z-index: 1001; }
+    .hamburger.toggle .fa-bars:before { content: "\f00d"; } /* Icono X */
+    
+    .hero-buttons { display: flex; flex-direction: column; gap: 1rem; }
+    .btn-outline { margin-left: 0; }
 }
-
-
