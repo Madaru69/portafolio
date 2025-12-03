@@ -139,11 +139,16 @@ header {
 }
 .btn-outline:hover { border-color: var(--secondary); color: var(--secondary); }
 
-/* --- SECCIÓN SOBRE MI (Más espaciado QA) --- */
+/* --- SECCIÓN SOBRE MI --- */
 .about, .projects, .github-section, .services, .contact { 
-    padding: 8rem 0; /* Aumentado para mejor diseño */
+    padding: 8rem 0; /* Espaciado QA */
 }
 .about-content { display: flex; align-items: center; gap: 4rem; }
+
+/* CAMBIO 3: Justificar texto */
+.about-text p {
+    text-align: justify;
+}
 
 /* FOTO CIRCULAR CORRECTA */
 .about-image { 
@@ -267,8 +272,8 @@ header {
 }
 
 .project-card, .repo-card, .service-card {
-    background: rgba(22, 27, 34, 0.7); /* QA: Fondo semi-transparente */
-    backdrop-filter: blur(10px); /* QA: Efecto borroso */
+    background: rgba(22, 27, 34, 0.7); /* Fondo semi-transparente */
+    backdrop-filter: blur(10px); /* Efecto borroso */
     border: 1px solid rgba(48, 54, 61, 0.7);
     padding: 2rem;
     border-radius: 8px;
@@ -281,9 +286,9 @@ header {
 }
 
 .project-card:hover, .repo-card:hover, .service-card:hover {
-    transform: translateY(-7px); /* QA: Más movimiento */
-    border-color: var(--secondary); /* QA: Borde brillante */
-    box-shadow: 0 10px 40px -10px rgba(88, 166, 255, 0.2); /* QA: Resplandor */
+    transform: translateY(-7px); 
+    border-color: var(--secondary); 
+    box-shadow: 0 10px 40px -10px rgba(88, 166, 255, 0.2); 
 }
 
 /* QA: Títulos más definidos */
