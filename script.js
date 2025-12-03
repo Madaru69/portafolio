@@ -7,13 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('.nav-links');
 
     if (hamburger && navLinks) {
-        // Abrir/Cerrar menú
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('toggle');
         });
 
-        // Cerrar menú al hacer clic en un enlace
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -23,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 2. EFECTO MÁQUINA DE ESCRIBIR (Typewriter)
+    // 2. EFECTO MÁQUINA DE ESCRIBIR
     // ==========================================
     const TypeWriter = function(txtElement, words, wait = 3000) {
         this.txtElement = txtElement;
@@ -36,74 +34,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     TypeWriter.prototype.type = function() {
-        // Índice actual de la palabra
         const current = this.wordIndex % this.words.length;
-        // Obtener el texto completo de la palabra actual
         const fullTxt = this.words[current];
 
-        // Verificar si está borrando
         if(this.isDeleting) {
-            // Borrar carácter
             this.txt = fullTxt.substring(0, this.txt.length - 1);
         } else {
-            // Agregar carácter
             this.txt = fullTxt.substring(0, this.txt.length + 1);
         }
 
-        // Insertar texto en el elemento
         this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
 
-        // Velocidad de escritura inicial
         let typeSpeed = 100;
 
-        if(this.isDeleting) {
-            typeSpeed /= 2; // Más rápido al borrar
-        }
+        if(this.isDeleting) { typeSpeed /= 2; }
 
-        // Si la palabra está completa
         if(!this.isDeleting && this.txt === fullTxt) {
-            typeSpeed = this.wait; // Pausa al final
+            typeSpeed = this.wait;
             this.isDeleting = true;
         } else if(this.isDeleting && this.txt === '') {
             this.isDeleting = false;
             this.wordIndex++;
-            typeSpeed = 500; // Pausa antes de escribir la siguiente
+            typeSpeed = 500;
         }
 
         setTimeout(() => this.type(), typeSpeed);
     }
 
-    // Inicializar TypeWriter
     const txtElement = document.querySelector('.txt-type');
     if (txtElement) {
-        const words = JSON.parse(txtElement.getAttribute('data-words'));
-        const wait = txtElement.getAttribute('data-wait');
-        new TypeWriter(txtElement, words, wait);
+        try {
+            const words = JSON.parse(txtElement.getAttribute('data-words'));
+            const wait = txtElement.getAttribute('data-wait');
+            new TypeWriter(txtElement, words, wait);
+        } catch(e) { console.error("Error TypeWriter", e); }
     }
 
     // ==========================================
-    // 3. CARGAR REPOSITORIOS DE GITHUB
+    // 3. CARGAR REPOSITORIOS GITHUB
     // ==========================================
-    const githubUsername = 'Madaru69'; // Tu usuario
+    const githubUsername = 'Madaru69';
     const repoContainer = document.getElementById('repos-container');
 
     if (repoContainer) {
         fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc`)
             .then(response => response.json())
             .then(repos => {
-                // Limpiar mensaje de carga
                 repoContainer.innerHTML = '';
-
-                // Filtrar y tomar los primeros 6 repositorios (puedes ajustar esto)
-                const recentRepos = repos
-                    .filter(repo => !repo.fork) // Quita esto si quieres mostrar forks
-                    .slice(0, 6);
+                const recentRepos = repos.filter(repo => !repo.fork).slice(0, 6);
 
                 recentRepos.forEach(repo => {
                     const card = document.createElement('div');
                     card.classList.add('repo-card');
-                    
-                    // Colores por lenguaje
                     let langColor = '#ccc';
                     if (repo.language) {
                         const lang = repo.language.toLowerCase();
@@ -111,8 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         else if (lang.includes('css')) langColor = '#563d7c';
                         else if (lang.includes('javascript')) langColor = '#f1e05a';
                         else if (lang.includes('python')) langColor = '#3572A5';
-                        else if (lang.includes('java')) langColor = '#b07219';
-                        else if (lang.includes('shell')) langColor = '#89e051';
                     }
 
                     card.innerHTML = `
@@ -128,21 +108,18 @@ document.addEventListener('DOMContentLoaded', () => {
                                 ${repo.language || 'Varios'}
                             </span>
                             <span><i class="far fa-star"></i> ${repo.stargazers_count}</span>
-                            <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
                         </div>
                     `;
-                    
                     repoContainer.appendChild(card);
                 });
             })
             .catch(error => {
-                console.error('Error cargando repos:', error);
                 repoContainer.innerHTML = '<p style="text-align:center;">No se pudieron cargar los repositorios.</p>';
             });
     }
 
     // ==========================================
-    // 4. FORMULARIO DE CONTACTO (AJAX)
+    // 4. FORMULARIO CONTACTO (FormSubmit AJAX)
     // ==========================================
     const form = document.getElementById("contact-form");
     
@@ -151,19 +128,16 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             const status = document.getElementById("form-status");
             const data = new FormData(event.target);
-            
-            // Efecto visual de "Enviando..."
             const btn = form.querySelector('button');
             const originalBtnText = btn.innerText;
+            
             btn.innerText = 'Enviando...';
             btn.disabled = true;
 
             fetch(event.target.action, {
                 method: form.method,
                 body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Accept': 'application/json' }
             }).then(response => {
                 if (response.ok) {
                     status.innerHTML = "¡Mensaje enviado con éxito!";
@@ -171,18 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     status.style.color = '#2ea043'; // Verde
                     form.reset();
                 } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                        } else {
-                            status.innerHTML = "Hubo un error al enviar el mensaje.";
-                        }
-                        status.style.display = 'block';
-                        status.style.color = '#da3633'; // Rojo
-                    })
+                    status.innerHTML = "Hubo un problema al enviar el mensaje.";
+                    status.style.display = 'block';
+                    status.style.color = '#da3633'; // Rojo
                 }
             }).catch(error => {
-                status.innerHTML = "Hubo un error al enviar el mensaje.";
+                status.innerHTML = "Hubo un error de conexión.";
                 status.style.display = 'block';
                 status.style.color = '#da3633'; // Rojo
             }).finally(() => {
