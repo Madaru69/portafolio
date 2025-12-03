@@ -1,435 +1,194 @@
-/* --- VARIABLES TECNOLÓGICAS --- */
-:root {
-    --bg-dark: #0d1117;       /* Fondo estilo GitHub Dark */
-    --bg-card: #161b22;       /* Tarjetas un poco más claras */
-    --text-main: #c9d1d9;     /* Blanco apagado */
-    --accent: #2ea043;        /* Verde GitHub/Matrix */
-    --accent-glow: #2ea04380; /* Resplandor del verde */
-    --secondary: #58a6ff;     /* Azul eléctrico VS Code */
-    --border: #30363d;        /* Bordes sutiles */
-    --font-mono: 'Fira Code', monospace; /* Fuente tipo código */
-    --font-sans: 'Inter', sans-serif; /* Fuente legible para textos */
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    font-family: var(--font-sans);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* Mejora de legibilidad general */
-p, .desc {
-    font-family: var(--font-sans);
-    font-weight: 300;
-    color: #aab4be;
-    line-height: 1.7;
-}
-
-/* Fondo de cuadrícula sutil (Grid Tech) */
-.bg-grid {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: linear-gradient(var(--border) 1px, transparent 1px),
-                      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 50px 50px;
-    opacity: 0.1;
-    z-index: -1;
-    pointer-events: none;
-}
-
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-h1, h2, h3 { color: #ffffff; font-family: var(--font-mono); }
-a { text-decoration: none; transition: 0.3s; }
-ul { list-style: none; }
-
-/* --- HEADER ESTILO TERMINAL --- */
-header {
-    background: rgba(13, 17, 23, 0.9);
-    backdrop-filter: blur(10px);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid var(--border);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 0;
-}
-
-.logo { display: flex; align-items: center; gap: 10px; }
-.terminal-prompt { color: var(--accent); font-weight: bold; font-family: var(--font-mono); font-size: 1.5rem; animation: blink 1s infinite; }
-.logo h1 { font-size: 1.2rem; letter-spacing: -1px; }
-
-.nav-links { display: flex; gap: 2rem; }
-.code-link { 
-    color: var(--text-main); 
-    font-family: var(--font-mono); 
-    font-size: 0.9rem; 
-}
-.code-link:hover { color: var(--secondary); text-shadow: 0 0 10px rgba(88, 166, 255, 0.5); }
-
-/* --- HERO SECTION --- */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding-top: 5rem;
-}
-
-.hero-content { max-width: 800px; }
-.hero-greeting { color: var(--accent); font-family: var(--font-mono); margin-bottom: 1rem; }
-.hero-title { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; }
-
-.cursor { 
-    display: inline-block; 
-    background-color: var(--secondary); 
-    width: 3px; 
-    animation: blink 1s infinite; 
-}
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-.txt-type { color: var(--secondary); }
-.hero-subtitle { font-size: 1.1rem; color: #8b949e; margin-bottom: 2.5rem; max-width: 600px; }
-
-/* Botones */
-.btn {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.btn-primary {
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    box-shadow: 0 0 10px rgba(46, 160, 67, 0.1);
-}
-
-.btn-primary:hover {
-    background: var(--accent);
-    color: black;
-    box-shadow: 0 0 20px var(--accent-glow);
-}
-
-.btn-outline {
-    color: var(--text-main);
-    border: 1px solid var(--border);
-    margin-left: 1rem;
-}
-.btn-outline:hover { border-color: var(--secondary); color: var(--secondary); }
-
-/* --- SECCIÓN SOBRE MI --- */
-.about, .projects, .github-section, .services, .contact { 
-    padding: 8rem 0; /* Espaciado QA */
-}
-.about-content { display: flex; align-items: center; gap: 4rem; }
-
-/* CAMBIO 3: Justificar texto */
-.about-text p {
-    text-align: justify;
-}
-
-/* FOTO CIRCULAR CORRECTA */
-.about-image { 
-    position: relative; 
-    width: 280px;  
-    height: 280px; 
-    flex-shrink: 0;
-}
-
-.about-image img {
-    width: 100%; 
-    height: 100%; 
-    border-radius: 50%; /* CIRCULO PERFECTO */
-    object-fit: cover;
-    object-position: center 30%; 
-    border: 2px solid var(--secondary);
-    position: relative;
-    z-index: 2;
-    filter: grayscale(20%); 
-    transition: filter 0.3s;
-}
-
-.about-image img:hover { filter: grayscale(0%); }
-
-.orbit {
-    position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px;
-    border-radius: 50%;
-    border: 1px dashed var(--border);
-    animation: spin 10s linear infinite;
-    z-index: 1;
-}
-@keyframes spin { 100% { transform: rotate(360deg); } }
-
-.section-title { font-size: 2rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 10px; }
-.hash { color: var(--secondary); }
-.highlight { color: var(--accent); font-weight: 600; }
-
-.tech-stack-mini { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
-.tech-stack-mini span { 
-    background: rgba(56, 139, 253, 0.1); 
-    color: var(--secondary); 
-    padding: 0.5rem 1rem; 
-    border-radius: 4px; 
-    font-family: var(--font-mono); 
-    font-size: 0.85rem;
-    border: 1px solid rgba(56, 139, 253, 0.2);
-}
-
-/* --- ESTILOS CERTIFICACIÓN --- */
-.cert-container {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: rgba(13, 17, 23, 0.7); /* Glass */
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    display: inline-block;
-    max-width: 450px; 
-    width: 100%;
-}
-
-.cert-heading {
-    color: #fff;
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 0.5rem;
-}
-
-.cert-link {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    text-decoration: none;
-    transition: transform 0.2s;
-}
-
-.cert-img-wrapper {
-    flex-shrink: 0; 
-    width: 80px;    
-    height: 80px;   
-    display: flex;  
-    align-items: center;
-    justify-content: center;
-    overflow: hidden; 
-    border-radius: 50%; 
-    background: #161b22; 
-}
-
-.azure-badge {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.cert-details {
-    display: flex;
-    flex-direction: column;
-}
-
-.badge-title {
-    color: #fff;
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 1.3;
-    margin-bottom: 0.5rem;
-}
-
-.badge-verify {
-    color: var(--secondary);
-    font-size: 0.85rem;
-    font-family: var(--font-mono);
-}
-
-
-/* --- EXPERIENCIA & SERVICIOS (TARJETAS GLASSMORPHISM) --- */
-.projects-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 2rem; 
-}
-
-.project-card, .repo-card, .service-card {
-    background: rgba(22, 27, 34, 0.7); /* Fondo semi-transparente */
-    backdrop-filter: blur(10px); /* Efecto borroso */
-    border: 1px solid rgba(48, 54, 61, 0.7);
-    padding: 2rem;
-    border-radius: 8px;
-    position: relative;
-    transition: 0.3s;
-    height: 100%; 
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.project-card:hover, .repo-card:hover, .service-card:hover {
-    transform: translateY(-7px); 
-    border-color: var(--secondary); 
-    box-shadow: 0 10px 40px -10px rgba(88, 166, 255, 0.2); 
-}
-
-/* QA: Títulos más definidos */
-.project-info h3, .repo-card h3, .service-card h3 { 
-    font-size: 1.3rem; 
-    margin-bottom: 0.5rem; 
-    color: #fff; 
-    letter-spacing: -0.5px;
-}
-
-.service-card .project-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.service-card .tags {
-    margin-top: auto; 
-}
-
-.card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-.card-icon { font-size: 2rem; color: var(--secondary); }
-.year { font-family: var(--font-mono); font-size: 0.8rem; color: #8b949e; background: #21262d; padding: 2px 8px; border-radius: 4px; }
-
-.role { color: var(--accent); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 1rem; }
-.desc { color: #8b949e; font-size: 0.95rem; margin-bottom: 1.5rem; }
-
-/* Estilo para el link de Superprof */
-.superprof-link {
-    color: var(--accent);
-    font-weight: 600;
-    display: block;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-}
-
-.tags { margin-top: 1rem; }
-.tags span { 
-    display: inline-block; font-size: 0.75rem; 
-    color: var(--text-main); border: 1px solid var(--border); 
-    padding: 2px 8px; border-radius: 20px; margin-right: 5px; 
-    margin-bottom: 5px; 
-}
-
-/* Repositorios */
-.repo-card { display: flex; flex-direction: column; height: 100%; }
-.repo-stats { margin-top: auto; display: flex; gap: 15px; color: #8b949e; font-size: 0.85rem; font-family: var(--font-mono); }
-.repo-header a { color: var(--text-main); }
-.repo-header a:hover { color: var(--accent); }
-
-/* --- CONTACTO --- */
-.contact { background: #161b22; border-top: 1px solid var(--border); }
-.contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-
-.info-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
-
-/* Enlace de WhatsApp Clicable */
-.contact-action-link {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    color: var(--text-main);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.contact-action-link:hover {
-    color: var(--secondary);
-}
-
-/* Iconos de contacto normales */
-.contact .info-item i {
-    width: 40px; 
-    height: 40px; 
-    background: var(--bg-dark); 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    border-radius: 50%; 
-    color: var(--secondary); 
-    font-size: 1.2rem;
-    flex-shrink: 0;
-}
-
-/* WHATSAPP VERDE CLÁSICO */
-.contact .info-item .whatsapp-icon {
-    background: #25D366 !important; /* Verde oficial */
-    color: white !important;
-    font-size: 1.5rem !important;
-    box-shadow: 0 0 10px rgba(37, 211, 102, 0.4);
-}
-
-.social-links a { color: var(--text-main); font-size: 1.5rem; margin-right: 1rem; }
-.social-links a:hover { color: var(--secondary); transform: scale(1.1); }
-
-.contact-form { background: rgba(13, 17, 23, 0.7); padding: 2rem; border: 1px solid var(--border); border-radius: 8px; }
-.form-group label { display: block; font-family: var(--font-mono); color: var(--secondary); font-size: 0.85rem; margin-bottom: 0.5rem; }
-.form-group input, .form-group textarea {
-    width: 100%; background: #0d1117; border: 1px solid var(--border);
-    color: #fff; padding: 10px; font-family: var(--font-mono); margin-bottom: 1.5rem;
-    outline: none;
-}
-.form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
-.btn-full { width: 100%; background: var(--accent); color: #000; font-weight: bold; border: none; }
-.btn-full:hover { background: #26a641; }
-
-footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.8rem; color: #8b949e; }
-
-/* Responsive */
-@media (max-width: 768px) {
-    .hero { padding-top: 80px; }
-    .hero-title { font-size: 2rem; }
-    .contact-content { grid-template-columns: 1fr; display: flex; flex-direction: column; gap: 2rem; }
-    .about-content { grid-template-columns: 1fr; display: block; text-align: center; }
-    .about-image { margin: 0 auto 2rem auto; }
-    .about-text { text-align: center; }
-    .tech-stack-mini { justify-content: center; }
+document.addEventListener('DOMContentLoaded', () => {
     
-    .cert-link { text-align: left; } 
-    .cert-container { margin: 2rem auto; }
-    
-    .nav-links {
-        position: fixed;
-        background: var(--bg-dark);
-        height: 100vh;
-        width: 100%;
-        top: 0;
-        left: 0;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-        z-index: 999;
-        padding-top: 0;
+    // ==========================================
+    // 1. MENÚ MÓVIL (Hamburguesa)
+    // ==========================================
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+        // Abrir/Cerrar menú
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('toggle');
+            });
+        });
     }
 
-    .nav-links.active { transform: translateX(0%); }
-    .nav-links li { margin: 1.5rem 0; }
-    .code-link { font-size: 1.5rem; color: #fff; }
-    .hamburger { display: block; color: #fff; font-size: 1.5rem; cursor: pointer; z-index: 1001; }
-    .hero-buttons { display: flex; flex-direction: column; gap: 1rem; }
-    .btn-outline { margin-left: 0; }
-}
+    // ==========================================
+    // 2. EFECTO MÁQUINA DE ESCRIBIR (Typewriter)
+    // ==========================================
+    const TypeWriter = function(txtElement, words, wait = 3000) {
+        this.txtElement = txtElement;
+        this.words = words;
+        this.txt = '';
+        this.wordIndex = 0;
+        this.wait = parseInt(wait, 10);
+        this.type();
+        this.isDeleting = false;
+    }
+
+    TypeWriter.prototype.type = function() {
+        // Índice actual de la palabra
+        const current = this.wordIndex % this.words.length;
+        // Obtener el texto completo de la palabra actual
+        const fullTxt = this.words[current];
+
+        // Verificar si está borrando
+        if(this.isDeleting) {
+            // Borrar carácter
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+            // Agregar carácter
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        // Insertar texto en el elemento
+        this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+        // Velocidad de escritura inicial
+        let typeSpeed = 100;
+
+        if(this.isDeleting) {
+            typeSpeed /= 2; // Más rápido al borrar
+        }
+
+        // Si la palabra está completa
+        if(!this.isDeleting && this.txt === fullTxt) {
+            typeSpeed = this.wait; // Pausa al final
+            this.isDeleting = true;
+        } else if(this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.wordIndex++;
+            typeSpeed = 500; // Pausa antes de escribir la siguiente
+        }
+
+        setTimeout(() => this.type(), typeSpeed);
+    }
+
+    // Inicializar TypeWriter
+    const txtElement = document.querySelector('.txt-type');
+    if (txtElement) {
+        const words = JSON.parse(txtElement.getAttribute('data-words'));
+        const wait = txtElement.getAttribute('data-wait');
+        new TypeWriter(txtElement, words, wait);
+    }
+
+    // ==========================================
+    // 3. CARGAR REPOSITORIOS DE GITHUB
+    // ==========================================
+    const githubUsername = 'Madaru69'; // Tu usuario
+    const repoContainer = document.getElementById('repos-container');
+
+    if (repoContainer) {
+        fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc`)
+            .then(response => response.json())
+            .then(repos => {
+                // Limpiar mensaje de carga
+                repoContainer.innerHTML = '';
+
+                // Filtrar y tomar los primeros 6 repositorios (puedes ajustar esto)
+                const recentRepos = repos
+                    .filter(repo => !repo.fork) // Quita esto si quieres mostrar forks
+                    .slice(0, 6);
+
+                recentRepos.forEach(repo => {
+                    const card = document.createElement('div');
+                    card.classList.add('repo-card');
+                    
+                    // Colores por lenguaje
+                    let langColor = '#ccc';
+                    if (repo.language) {
+                        const lang = repo.language.toLowerCase();
+                        if (lang.includes('html')) langColor = '#e34c26';
+                        else if (lang.includes('css')) langColor = '#563d7c';
+                        else if (lang.includes('javascript')) langColor = '#f1e05a';
+                        else if (lang.includes('python')) langColor = '#3572A5';
+                        else if (lang.includes('java')) langColor = '#b07219';
+                        else if (lang.includes('shell')) langColor = '#89e051';
+                    }
+
+                    card.innerHTML = `
+                        <div class="repo-header" style="display:flex; justify-content:space-between; margin-bottom:1rem;">
+                            <i class="far fa-folder-open" style="color:var(--text-main)"></i>
+                            <a href="${repo.html_url}" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <h3><a href="${repo.html_url}" target="_blank" style="color:#fff; text-decoration:none;">${repo.name}</a></h3>
+                        <p style="font-size:0.9rem; color:#8b949e; margin-bottom:1.5rem;">${repo.description || 'Sin descripción disponible.'}</p>
+                        <div class="repo-stats" style="margin-top:auto; display:flex; gap:15px; font-size:0.85rem;">
+                            <span style="display:flex; align-items:center; gap:5px;">
+                                <span style="width:10px; height:10px; border-radius:50%; background-color:${langColor}; display:inline-block;"></span>
+                                ${repo.language || 'Varios'}
+                            </span>
+                            <span><i class="far fa-star"></i> ${repo.stargazers_count}</span>
+                            <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+                        </div>
+                    `;
+                    
+                    repoContainer.appendChild(card);
+                });
+            })
+            .catch(error => {
+                console.error('Error cargando repos:', error);
+                repoContainer.innerHTML = '<p style="text-align:center;">No se pudieron cargar los repositorios.</p>';
+            });
+    }
+
+    // ==========================================
+    // 4. FORMULARIO DE CONTACTO (AJAX)
+    // ==========================================
+    const form = document.getElementById("contact-form");
+    
+    if(form) {
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const status = document.getElementById("form-status");
+            const data = new FormData(event.target);
+            
+            // Efecto visual de "Enviando..."
+            const btn = form.querySelector('button');
+            const originalBtnText = btn.innerText;
+            btn.innerText = 'Enviando...';
+            btn.disabled = true;
+
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    status.innerHTML = "¡Mensaje enviado con éxito!";
+                    status.style.display = 'block';
+                    status.style.color = '#2ea043'; // Verde
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            status.innerHTML = "Hubo un error al enviar el mensaje.";
+                        }
+                        status.style.display = 'block';
+                        status.style.color = '#da3633'; // Rojo
+                    })
+                }
+            }).catch(error => {
+                status.innerHTML = "Hubo un error al enviar el mensaje.";
+                status.style.display = 'block';
+                status.style.color = '#da3633'; // Rojo
+            }).finally(() => {
+                btn.innerText = originalBtnText;
+                btn.disabled = false;
+            });
+        });
+    }
+});
