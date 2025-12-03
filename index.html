@@ -283,8 +283,12 @@
                     </div>
                 </div>
                 
-                <form class="contact-form" action="https://formspree.io/f/TU_CODIGO_AQUI" method="POST" id="contact-form">
-                    <div class="form-group">
+                <form class="contact-form" action="https://formsubmit.co/davidmutis4@gmail.com" method="POST" id="contact-form">
+                    
+                    <input type="hidden" name="_subject" value="Nuevo contacto desde Portafolio!">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honey" style="display:none"> <div class="form-group">
                         <label>const nombre =</label>
                         <input type="text" name="nombre" placeholder="'Tu Nombre'" required>
                     </div>
@@ -297,7 +301,7 @@
                         <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-full">Ejecutar Envio</button>
-                    <p id="form-status" style="display: none; margin-top: 1rem;"></p>
+                    <p id="form-status" style="display: none; margin-top: 1rem; text-align: center; font-weight: bold;"></p>
                 </form>
             </div>
         </div>
