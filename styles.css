@@ -103,7 +103,22 @@ header {
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 .txt-type { color: var(--secondary); }
-.hero-subtitle { font-size: 1.1rem; color: #8b949e; margin-bottom: 2.5rem; max-width: 600px; }
+
+
+.hero-subtitle {
+    text-align: justify;
+    text-justify: inter-word; /* Mejora la distribución de espacios */
+    max-width: 700px; /* Asegura que no sea demasiado ancho para leerse bien */
+    margin-left: auto; /* Estos dos margin ayudan a centrar el bloque si es necesario */
+    margin-right: auto; 
+}
+
+/* Opcional: En móviles suele verse mal el justificado, puedes quitarlo en pantallas pequeñas */
+@media (max-width: 768px) {
+    .hero-subtitle {
+        text-align: left; /* O center, según prefieras */
+    }
+}
 
 /* Botones */
 .btn {
@@ -433,3 +448,4 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border);
     .hero-buttons { display: flex; flex-direction: column; gap: 1rem; }
     .btn-outline { margin-left: 0; }
 }
+
