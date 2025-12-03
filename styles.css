@@ -1,343 +1,12 @@
-¡Claro que sí, David\! Aquí tienes la integración definitiva.
-
-He eliminado la cuadrícula estática (`.bg-grid`) y he añadido el sistema de **Parallax de Estrellas**. Ahora tendrás un fondo profundo con movimiento suave que simula estar viajando por el espacio (o la nube de datos), manteniendo todo el contenido y las correcciones de calidad (QA) que hicimos antes.
-
-Solo tienes que copiar y reemplazar todo el contenido de tus archivos.
-
-### 1\. 📄 `index.html` (Completo con Fondo Espacial)
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Arbelaez | SysAdmin & Cloud Architect</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    
-    <div class="space-background">
-        <div id="stars"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
-    </div>
-
-    <header>
-        <div class="container nav-container">
-            <div class="logo">
-                <span class="terminal-prompt">>_</span>
-                <h1>David Arbelaez</h1>
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#inicio" class="code-link">./inicio</a></li>
-                    <li><a href="#sobre-mi" class="code-link">./whoami</a></li>
-                    <li><a href="#servicios" class="code-link">./servicios</a></li>
-                    <li><a href="#experiencia" class="code-link">./xp</a></li>
-                    <li><a href="#github" class="code-link">./repos</a></li>
-                    <li><a href="#contacto" class="code-link">./contacto</a></li>
-                </ul>
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <section id="inicio" class="hero">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <p class="hero-greeting">Hola, soy David. Bienvenido a mi portafolio.</p>
-                
-                <h1 class="hero-title">Arquitectura de <span class="txt-type" data-wait="3000" data-words='["Sistemas Críticos.", "Nubes Híbridas.", "Alto Rendimiento.", "Costos Optimizados."]'></span><span class="cursor">|</span></h1>
-                
-                <p class="hero-subtitle">
-                    Administrador de Sistemas y Cloud. Especializado en la gestión de infraestructura crítica, optimización de costos en Azure y administración de entornos virtualizados. Mi objetivo es garantizar servicios estables, seguros y rentables.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contacto" class="btn btn-primary"><i class="fas fa-terminal"></i> Iniciar contacto</a>
-                    <a href="#github" class="btn btn-outline"><i class="fab fa-github"></i> Ver código</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="sobre-mi" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="img/Photo.jpg" alt="David Arbelaez">
-                    <div class="orbit"></div>
-                </div>
-                <div class="about-text">
-                    <h2 class="section-title"><span class="hash">#</span> whoami</h2>
-                    <p>
-                        Soy <span class="highlight">Técnico Superior en Administración de Sistemas</span>. Mi enfoque principal es el diseño y mantenimiento de soluciones escalables. Me caracterizo por una mentalidad analítica y resolutiva, siempre enfocada en la mejora continua de la infraestructura y la eficiencia operativa de los servicios.
-                    </p>
-                    <p>
-                        Cuento con experiencia demostrable liderando estrategias de reducción de costos en la nube (Azure) y gestionando la continuidad de negocio en entornos corporativos exigentes.
-                    </p>
-                    
-                    <div class="cert-container">
-                        <h3 class="cert-heading">Certificación Cloud</h3>
-                        <a href="https://www.credly.com/badges/97997174-bab8-4d66-884f-f3f7d6410796/public_url" target="_blank" class="cert-link">
-                            <div class="cert-img-wrapper">
-                                <img src="img/Badge.png" alt="Azure Badge" class="azure-badge">
-                            </div>
-                            <div class="cert-details">
-                                <span class="badge-title">Microsoft Certified: Azure Fundamentals</span>
-                                <span class="badge-verify">Ver Credencial <i class="fas fa-external-link-alt"></i></span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="tech-stack-mini">
-                        <span><i class="fab fa-microsoft"></i> Azure Cloud</span>
-                        <span><i class="fab fa-aws"></i> AWS</span>
-                        <span><i class="fas fa-server"></i> Windows/Linux</span>
-                        <span><i class="fas fa-globe"></i> ArcGIS</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="servicios" class="services">
-        <div class="container">
-            <h2 class="section-title"><span class="hash">#</span> deployment.sh</h2>
-            <div class="projects-grid">
-
-                <div class="service-card project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-info">
-                        <div class="card-top">
-                            <i class="fas fa-chalkboard-teacher card-icon"></i>
-                        </div>
-                        <h3>Mentoring & Capacitación</h3>
-                        <p class="desc">Formación personalizada y consultoría educativa en informática, desde fundamentos hasta arquitectura Cloud y Sistemas avanzados.</p>
-                        <a href="https://www.superprof.es/profesor-informatica-para-todas-las-edades-niveles-desde-principiantes-hasta-avanzados-disponibilidad-las-tardes-online.html" target="_blank" class="code-link superprof-link">
-                            Ver perfil docente <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-info">
-                        <div class="card-top">
-                            <i class="fas fa-server card-icon"></i>
-                        </div>
-                        <h3>Admin. Infraestructura</h3>
-                        <p class="desc">Gestión integral de servidores y virtualización de alto nivel con <strong>HyperV y VMWare</strong>. Administración de ecosistemas e-learning (<strong>Moodle/SAP</strong>).</p>
-                        <div class="tags">
-                            <span>VMWare/HyperV</span>
-                            <span>Windows Server</span>
-                            <span>Moodle</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-info">
-                        <div class="card-top">
-                            <i class="fas fa-map-marked-alt card-icon"></i>
-                        </div>
-                        <h3>Especialista SIG</h3>
-                        <p class="desc">Despliegue de soluciones geoespaciales con <strong>ArcGIS Enterprise</strong>. Configuración avanzada de bases de datos (<strong>SQL, Oracle, Postgres</strong>).</p>
-                        <div class="tags">
-                            <span>ArcGIS Enterprise</span>
-                            <span>Databases</span>
-                            <span>Soporte SIG</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="service-card project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-info">
-                        <div class="card-top">
-                            <i class="fas fa-headset card-icon"></i>
-                        </div>
-                        <h3>Continuidad & Soporte IT</h3>
-                        <p class="desc">Garantía de operatividad mediante resolución de incidencias críticas (Helpdesk N2/N3), mantenimiento preventivo y gestión eficiente de tickets (SysAid).</p>
-                        <div class="tags">
-                            <span>Helpdesk N2/N3</span>
-                            <span>Hardware</span>
-                            <span>SysAid</span>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <section id="experiencia" class="projects">
-        <div class="container">
-            <h2 class="section-title"><span class="hash">#</span> system_logs</h2>
-            <div class="projects-grid">
-                
-                <div class="project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-info">
-                        <div class="card-top">
-                            <i class="fas fa-cloud card-icon"></i>
-                            <span class="year">2021 - 2024</span>
-                        </div>
-                        <h3>Optimización Azure</h3>
-                        <p class="role">@ Esri Colombia</p>
-                        <p class="desc">Lideré la reducción del <span class="highlight">50% en costos PayAsGo</span> mediante un análisis profundo y la rearquitectura de servicios en la nube.</p>
-                        <div class="tags">
-                            <span>Azure</span>
-                            <span>Cost Mgmt</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-info">
-                        <div class="card-top">
-                            <i class="fas fa-server card-icon"></i>
-                            <span class="year">2019 - 2021</span>
-                        </div>
-                        <h3>Admin. Infraestructura</h3>
-                        <p class="role">@ Esri Colombia</p>
-                        <p class="desc">Administré servidores críticos y entornos de virtualización <strong>VMWare</strong>, asegurando la disponibilidad de plataformas Moodle y SAP.</p>
-                        <div class="tags">
-                            <span>Windows Server</span>
-                            <span>VMware</span>
-                            <span>SAP/Moodle</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-info">
-                        <div class="card-top">
-                            <i class="fas fa-globe card-icon"></i>
-                            <span class="year">2019 - 2021</span>
-                        </div>
-                        <h3>Arquitectura GIS</h3>
-                        <p class="role">@ Esri Colombia</p>
-                        <p class="desc">Desplegué y configuré <strong>ArcGIS Enterprise</strong>, gestionando conexiones complejas a bases de datos espaciales (SQL Server, Oracle).</p>
-                        <div class="tags">
-                            <span>ArcGIS Enterprise</span>
-                            <span>SQL/Oracle</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-info">
-                        <div class="card-top">
-                            <i class="fas fa-users-cog card-icon"></i>
-                            <span class="year">2018 - 2019</span>
-                        </div>
-                        <h3>Soporte Premium</h3>
-                        <p class="role">@ Freelance / OTICELSISTEMAS</p>
-                        <p class="desc">Provisión de soporte técnico Nivel 2/3, resolviendo incidencias críticas y garantizando la estabilidad del hardware empresarial.</p>
-                        <div class="tags">
-                            <span>Helpdesk</span>
-                            <span>IT Support</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="github" class="github-section">
-        <div class="container">
-            <h2 class="section-title"><span class="hash">#</span> git pull origin master</h2>
-            <p class="subtitle-code">Últimos commits públicos</p>
-            <div id="repos-container" class="projects-grid">
-                <p>Cargando datos del repositorio...</p>
-            </div>
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="https://github.com/Madaru69?tab=repositories" target="_blank" class="btn btn-outline">Ver todos en GitHub</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="contact">
-        <div class="container">
-            <h2 class="section-title"><span class="hash">#</span> sudo contact-me</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <p>¿Listo para desplegar el siguiente proyecto?</p>
-                    
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:davidmutis4@gmail.com">davidmutis4@gmail.com</a>
-                    </div>
-                    
-                    <div class="info-item">
-                        <a href="https://wa.me/34665475283" target="_blank" class="contact-action-link">
-                            <i class="fab fa-whatsapp whatsapp-icon"></i> 
-                            <span>+34 665 475 283</span>
-                        </a>
-                    </div>
-
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/davidmutis/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/Madaru69/" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                
-                <form class="contact-form" action="https://formspree.io/f/TU_CODIGO_AQUI" method="POST" id="contact-form">
-                    <div class="form-group">
-                        <label>const nombre =</label>
-                        <input type="text" name="nombre" placeholder="'Tu Nombre'" required>
-                    </div>
-                    <div class="form-group">
-                        <label>const email =</label>
-                        <input type="email" name="email" placeholder="'tu@email.com'" required>
-                    </div>
-                    <div class="form-group">
-                        <label>let mensaje =</label>
-                        <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-full">Ejecutar Envio</button>
-                    <p id="form-status" style="display: none; margin-top: 1rem;"></p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>Designed by David Arbelaez <span style="color:var(--accent);">//</span> 2025</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
-```
-
-### 2\. 🎨 `styles.css` (Completo con Fondo Espacial)
-
-Este CSS incluye las animaciones de estrellas y elimina la antigua cuadrícula.
-
-```css
-/* --- VARIABLES TECNOLÓGICAS --- */
+/* --- 1. VARIABLES TECNOLÓGICAS & RESET --- */
 :root {
-    --bg-dark: #0d1117;       /* Fondo estilo GitHub Dark */
-    --bg-card: #161b22;       /* Tarjetas un poco más claras */
-    --text-main: #c9d1d9;     /* Blanco apagado */
-    --accent: #2ea043;        /* Verde GitHub/Matrix */
-    --accent-glow: #2ea04380; /* Resplandor del verde */
-    --secondary: #58a6ff;     /* Azul eléctrico VS Code */
+    --bg-dark: #0d1117;       /* Fondo base oscuro */
+    --text-main: #c9d1d9;     /* Texto principal claro */
+    --accent: #2ea043;        /* Verde Matrix/GitHub */
+    --secondary: #58a6ff;     /* Azul VS Code */
     --border: #30363d;        /* Bordes sutiles */
-    --font-mono: 'Fira Code', monospace; /* Fuente tipo código */
-    --font-sans: 'Inter', sans-serif; /* Fuente legible para textos */
+    --font-mono: 'Fira Code', monospace; /* Títulos */
+    --font-sans: 'Inter', sans-serif;    /* Texto lectura */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -354,73 +23,53 @@ body {
 p, .desc {
     font-family: var(--font-sans);
     font-weight: 300;
-    color: #aab4be;
-    line-height: 1.8;
+    color: #aab4be; /* Gris suave legible */
+    line-height: 1.8; /* Espaciado cómodo */
 }
 
-/* --- FONDO ESPACIAL (DEEP SPACE PARALLAX) --- */
+/* --- 2. FONDO ESPACIAL (DEEP SPACE PARALLAX) --- */
 .space-background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    /* Degradado sutil para dar profundidad */
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     overflow: hidden;
-    z-index: -1;
+    z-index: -1; /* Detrás de todo */
 }
 
-/* CAPA 1: Estrellas pequeñas (Fondo lejano) */
+/* CAPA 1: Estrellas pequeñas */
 #stars {
-    width: 1px;
-    height: 1px;
-    background: transparent;
+    width: 1px; height: 1px; background: transparent;
     box-shadow: 1744px 122px #FFF , 134px 1321px #FFF , 92px 859px #FFF , 1637px 1199px #FFF , 720px 289px #FFF , 1526px 973px #FFF , 1805px 1275px #FFF , 1339px 363px #FFF , 839px 1238px #FFF , 168px 432px #FFF , 995px 632px #FFF , 1032px 147px #FFF , 1030px 1285px #FFF , 1817px 1569px #FFF , 1279px 83px #FFF , 639px 1572px #FFF , 290px 1045px #FFF , 1970px 929px #FFF , 923px 783px #FFF , 1363px 1202px #FFF , 62px 1690px #FFF , 1585px 1432px #FFF , 108px 63px #FFF , 1328px 1227px #FFF , 109px 1744px #FFF , 396px 1422px #FFF , 1483px 1739px #FFF , 1642px 653px #FFF , 143px 1605px #FFF , 1735px 130px #FFF , 1024px 1056px #FFF , 126px 1205px #FFF , 1273px 1787px #FFF , 1045px 337px #FFF , 506px 1033px #FFF , 1530px 337px #FFF , 729px 1039px #FFF , 1897px 1109px #FFF , 1761px 738px #FFF , 129px 1856px #FFF;
     animation: animStar 150s linear infinite;
 }
 #stars:after {
-    content: " ";
-    position: absolute;
-    top: 2000px;
-    width: 1px;
-    height: 1px;
-    background: transparent;
+    content: " "; position: absolute; top: 2000px; width: 1px; height: 1px; background: transparent;
     box-shadow: 1744px 122px #FFF , 134px 1321px #FFF , 92px 859px #FFF , 1637px 1199px #FFF , 720px 289px #FFF , 1526px 973px #FFF , 1805px 1275px #FFF , 1339px 363px #FFF , 839px 1238px #FFF , 168px 432px #FFF , 995px 632px #FFF , 1032px 147px #FFF , 1030px 1285px #FFF , 1817px 1569px #FFF , 1279px 83px #FFF , 639px 1572px #FFF , 290px 1045px #FFF , 1970px 929px #FFF , 923px 783px #FFF , 1363px 1202px #FFF , 62px 1690px #FFF , 1585px 1432px #FFF , 108px 63px #FFF , 1328px 1227px #FFF , 109px 1744px #FFF , 396px 1422px #FFF , 1483px 1739px #FFF , 1642px 653px #FFF , 143px 1605px #FFF , 1735px 130px #FFF , 1024px 1056px #FFF , 126px 1205px #FFF , 1273px 1787px #FFF , 1045px 337px #FFF , 506px 1033px #FFF , 1530px 337px #FFF , 729px 1039px #FFF , 1897px 1109px #FFF , 1761px 738px #FFF , 129px 1856px #FFF;
 }
 
 /* CAPA 2: Estrellas medianas */
 #stars2 {
-    width: 2px;
-    height: 2px;
-    background: transparent;
+    width: 2px; height: 2px; background: transparent;
     box-shadow: 928px 1676px #FFF , 1686px 873px #FFF , 1403px 66px #FFF , 345px 1023px #FFF , 1696px 1395px #FFF , 1876px 214px #FFF , 977px 1446px #FFF , 1729px 78px #FFF , 303px 1789px #FFF , 1130px 1537px #FFF , 1307px 1326px #FFF , 1095px 233px #FFF , 532px 1656px #FFF , 216px 1332px #FFF , 1745px 634px #FFF , 810px 421px #FFF , 1229px 1115px #FFF , 452px 1716px #FFF , 1036px 973px #FFF , 54px 1396px #FFF;
     animation: animStar 100s linear infinite;
 }
 #stars2:after {
-    content: " ";
-    position: absolute;
-    top: 2000px;
-    width: 2px;
-    height: 2px;
-    background: transparent;
+    content: " "; position: absolute; top: 2000px; width: 2px; height: 2px; background: transparent;
     box-shadow: 928px 1676px #FFF , 1686px 873px #FFF , 1403px 66px #FFF , 345px 1023px #FFF , 1696px 1395px #FFF , 1876px 214px #FFF , 977px 1446px #FFF , 1729px 78px #FFF , 303px 1789px #FFF , 1130px 1537px #FFF , 1307px 1326px #FFF , 1095px 233px #FFF , 532px 1656px #FFF , 216px 1332px #FFF , 1745px 634px #FFF , 810px 421px #FFF , 1229px 1115px #FFF , 452px 1716px #FFF , 1036px 973px #FFF , 54px 1396px #FFF;
 }
 
-/* CAPA 3: Estrellas grandes (Primer plano, más rápidas) */
+/* CAPA 3: Estrellas grandes */
 #stars3 {
-    width: 3px;
-    height: 3px;
-    background: transparent;
+    width: 3px; height: 3px; background: transparent;
     box-shadow: 1060px 580px #FFF , 179px 1118px #FFF , 1322px 168px #FFF , 725px 904px #FFF , 1568px 1782px #FFF , 28px 1293px #FFF , 896px 342px #FFF;
     animation: animStar 50s linear infinite;
 }
 #stars3:after {
-    content: " ";
-    position: absolute;
-    top: 2000px;
-    width: 3px;
-    height: 3px;
-    background: transparent;
+    content: " "; position: absolute; top: 2000px; width: 3px; height: 3px; background: transparent;
     box-shadow: 1060px 580px #FFF , 179px 1118px #FFF , 1322px 168px #FFF , 725px 904px #FFF , 1568px 1782px #FFF , 28px 1293px #FFF , 896px 342px #FFF;
 }
 
@@ -429,6 +78,7 @@ p, .desc {
     to { transform: translateY(-2000px); }
 }
 
+/* --- 3. LAYOUT GLOBAL --- */
 .container {
     width: 90%;
     max-width: 1100px;
@@ -439,10 +89,15 @@ h1, h2, h3 { color: #ffffff; font-family: var(--font-mono); }
 a { text-decoration: none; transition: 0.3s; }
 ul { list-style: none; }
 
-/* --- HEADER ESTILO TERMINAL --- */
+/* Espaciado generoso entre secciones */
+.about, .projects, .github-section, .services, .contact { 
+    padding: 8rem 0; 
+}
+
+/* --- 4. HEADER ESTILO TERMINAL --- */
 header {
-    background: rgba(13, 17, 23, 0.9);
-    backdrop-filter: blur(10px);
+    background: rgba(13, 17, 23, 0.7); /* Transparencia para ver estrellas */
+    backdrop-filter: blur(10px);        /* Efecto borroso */
     position: fixed;
     width: 100%;
     top: 0;
@@ -469,7 +124,7 @@ header {
 }
 .code-link:hover { color: var(--secondary); text-shadow: 0 0 10px rgba(88, 166, 255, 0.5); }
 
-/* --- HERO SECTION --- */
+/* --- 5. HERO SECTION --- */
 .hero {
     height: 100vh;
     display: flex;
@@ -482,17 +137,12 @@ header {
 .hero-greeting { color: var(--accent); font-family: var(--font-mono); margin-bottom: 1rem; }
 .hero-title { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; }
 
-.cursor { 
-    display: inline-block; 
-    background-color: var(--secondary); 
-    width: 3px; 
-    animation: blink 1s infinite; 
-}
+.cursor { display: inline-block; background-color: var(--secondary); width: 3px; animation: blink 1s infinite; }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 .txt-type { color: var(--secondary); }
 
-/* Subtítulo Hero */
+/* Subtítulo Hero Justificado */
 .hero-subtitle { 
     font-size: 1.1rem; 
     color: #8b949e; 
@@ -503,79 +153,30 @@ header {
 
 /* Botones */
 .btn {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    transition: 0.3s;
+    display: inline-block; padding: 0.8rem 2rem; font-family: var(--font-mono); font-size: 0.9rem;
+    border-radius: 5px; cursor: pointer; position: relative; overflow: hidden; text-align: center; transition: 0.3s;
 }
-
-.btn-primary {
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    box-shadow: 0 0 10px rgba(46, 160, 67, 0.1);
-}
-
-.btn-primary:hover {
-    background: var(--accent);
-    color: black;
-    box-shadow: 0 0 20px var(--accent-glow);
-}
-
-.btn-outline {
-    color: var(--text-main);
-    border: 1px solid var(--border);
-    margin-left: 1rem;
-}
+.btn-primary { background: transparent; color: var(--accent); border: 1px solid var(--accent); box-shadow: 0 0 10px rgba(46, 160, 67, 0.1); }
+.btn-primary:hover { background: var(--accent); color: black; box-shadow: 0 0 20px var(--accent-glow); }
+.btn-outline { color: var(--text-main); border: 1px solid var(--border); margin-left: 1rem; }
 .btn-outline:hover { border-color: var(--secondary); color: var(--secondary); }
 
-/* --- SECCIÓN SOBRE MI --- */
-.about, .projects, .github-section, .services, .contact { 
-    padding: 8rem 0; /* Espaciado QA */
-}
+/* --- 6. SECCIÓN SOBRE MI --- */
 .about-content { display: flex; align-items: center; gap: 4rem; }
 
-/* Justificación en texto Sobre Mi */
-.about-text p {
-    text-align: justify;
-    margin-bottom: 1.5rem;
-}
+/* Texto justificado */
+.about-text p { text-align: justify; margin-bottom: 1.5rem; }
 
-/* FOTO CIRCULAR CORRECTA */
-.about-image { 
-    position: relative; 
-    width: 280px;  
-    height: 280px; 
-    flex-shrink: 0;
-}
-
+/* Foto Circular */
+.about-image { position: relative; width: 280px; height: 280px; flex-shrink: 0; }
 .about-image img {
-    width: 100%; 
-    height: 100%; 
-    border-radius: 50%; /* CIRCULO PERFECTO */
-    object-fit: cover;
-    object-position: center 30%; 
-    border: 2px solid var(--secondary);
-    position: relative;
-    z-index: 2;
-    filter: grayscale(20%); 
-    transition: filter 0.3s;
+    width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center 30%;
+    border: 2px solid var(--secondary); position: relative; z-index: 2; filter: grayscale(20%); transition: filter 0.3s;
 }
-
 .about-image img:hover { filter: grayscale(0%); }
-
 .orbit {
     position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px;
-    border-radius: 50%;
-    border: 1px dashed var(--border);
-    animation: spin 10s linear infinite;
-    z-index: 1;
+    border-radius: 50%; border: 1px dashed var(--border); animation: spin 10s linear infinite; z-index: 1;
 }
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
@@ -585,149 +186,75 @@ header {
 
 .tech-stack-mini { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
 .tech-stack-mini span { 
-    background: rgba(56, 139, 253, 0.1); 
-    color: var(--secondary); 
-    padding: 0.5rem 1rem; 
-    border-radius: 4px; 
-    font-family: var(--font-mono); 
-    font-size: 0.85rem;
-    border: 1px solid rgba(56, 139, 253, 0.2);
+    background: rgba(56, 139, 253, 0.1); color: var(--secondary); padding: 0.5rem 1rem;
+    border-radius: 4px; font-family: var(--font-mono); font-size: 0.85rem; border: 1px solid rgba(56, 139, 253, 0.2);
 }
 
-/* --- ESTILOS CERTIFICACIÓN --- */
+/* --- 7. ESTILOS CERTIFICACIÓN (BLINDADO) --- */
 .cert-container {
-    margin-top: 2rem;
-    padding: 1.5rem;
+    margin-top: 2rem; padding: 1.5rem;
     background: rgba(13, 17, 23, 0.7); /* Glass */
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    display: inline-block;
-    max-width: 450px; 
-    width: 100%;
+    border: 1px solid var(--border); border-radius: 8px;
+    display: inline-block; max-width: 450px; width: 100%;
 }
-
 .cert-heading {
-    color: #fff;
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 0.5rem;
+    color: #fff; font-family: var(--font-mono); font-size: 1rem;
+    margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;
 }
+.cert-link { display: flex; align-items: center; gap: 1.5rem; text-decoration: none; transition: transform 0.2s; }
+.cert-link:hover { transform: translateX(5px); }
 
-.cert-link {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    text-decoration: none;
-    transition: transform 0.2s;
-}
-
+/* Wrapper para evitar que el texto aplaste la imagen */
 .cert-img-wrapper {
-    flex-shrink: 0; 
-    width: 80px;    
-    height: 80px;   
-    display: flex;  
-    align-items: center;
-    justify-content: center;
-    overflow: hidden; 
-    border-radius: 50%; 
-    background: #161b22; 
+    flex-shrink: 0; width: 80px; height: 80px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; border-radius: 50%; background: #161b22;
 }
+.azure-badge { width: 100%; height: 100%; object-fit: contain; }
 
-.azure-badge {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
+.cert-details { display: flex; flex-direction: column; }
+.badge-title { color: #fff; font-weight: 600; font-size: 1rem; line-height: 1.3; margin-bottom: 0.5rem; }
+.badge-verify { color: var(--secondary); font-size: 0.85rem; font-family: var(--font-mono); }
 
-.cert-details {
-    display: flex;
-    flex-direction: column;
-}
-
-.badge-title {
-    color: #fff;
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 1.3;
-    margin-bottom: 0.5rem;
-}
-
-.badge-verify {
-    color: var(--secondary);
-    font-size: 0.85rem;
-    font-family: var(--font-mono);
-}
-
-
-/* --- EXPERIENCIA & SERVICIOS (TARJETAS GLASSMORPHISM) --- */
+/* --- 8. TARJETAS (GLASSMORPHISM RESTAURADO) --- */
 .projects-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 2rem; 
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; 
 }
 
+/* ESTILO PREMIUM TARJETAS */
 .project-card, .repo-card, .service-card {
     background: rgba(22, 27, 34, 0.7); /* Fondo semi-transparente */
-    backdrop-filter: blur(10px); /* Efecto borroso */
+    backdrop-filter: blur(10px);       /* Efecto borroso */
     border: 1px solid rgba(48, 54, 61, 0.7);
-    padding: 2rem;
-    border-radius: 8px;
-    position: relative;
-    transition: 0.3s;
-    height: 100%; 
-    display: flex;
-    flex-direction: column;
+    padding: 2rem; border-radius: 8px; position: relative; transition: 0.3s;
+    height: 100%; display: flex; flex-direction: column;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .project-card:hover, .repo-card:hover, .service-card:hover {
-    transform: translateY(-7px); 
-    border-color: var(--secondary); 
-    box-shadow: 0 10px 40px -10px rgba(88, 166, 255, 0.2); 
+    transform: translateY(-7px);
+    border-color: var(--secondary);
+    box-shadow: 0 10px 40px -10px rgba(88, 166, 255, 0.2);
 }
 
-/* Títulos más definidos */
 .project-info h3, .repo-card h3, .service-card h3 { 
-    font-size: 1.3rem; 
-    margin-bottom: 0.5rem; 
-    color: #fff; 
-    letter-spacing: -0.5px;
+    font-size: 1.3rem; margin-bottom: 0.5rem; color: #fff; letter-spacing: -0.5px;
 }
 
-.service-card .project-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.service-card .tags {
-    margin-top: auto; 
-}
+.service-card .project-info { flex: 1; display: flex; flex-direction: column; }
+.service-card .tags { margin-top: auto; }
 
 .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
 .card-icon { font-size: 2rem; color: var(--secondary); }
 .year { font-family: var(--font-mono); font-size: 0.8rem; color: #8b949e; background: #21262d; padding: 2px 8px; border-radius: 4px; }
-
 .role { color: var(--accent); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 1rem; }
 .desc { color: #8b949e; font-size: 0.95rem; margin-bottom: 1.5rem; }
 
-/* Estilo para el link de Superprof */
-.superprof-link {
-    color: var(--accent);
-    font-weight: 600;
-    display: block;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-}
-
+.superprof-link { color: var(--accent); font-weight: 600; display: block; margin-top: 1rem; font-size: 0.9rem; }
 .tags { margin-top: 1rem; }
 .tags span { 
-    display: inline-block; font-size: 0.75rem; 
-    color: var(--text-main); border: 1px solid var(--border); 
-    padding: 2px 8px; border-radius: 20px; margin-right: 5px; 
-    margin-bottom: 5px; 
+    display: inline-block; font-size: 0.75rem; color: var(--text-main); border: 1px solid var(--border); 
+    padding: 2px 8px; border-radius: 20px; margin-right: 5px; margin-bottom: 5px; 
 }
 
 /* Repositorios */
@@ -736,57 +263,29 @@ header {
 .repo-header a { color: var(--text-main); }
 .repo-header a:hover { color: var(--accent); }
 
-/* --- CONTACTO --- */
-.contact { background: #161b22; border-top: 1px solid var(--border); }
+/* --- 9. CONTACTO --- */
+.contact { background: rgba(22, 27, 34, 0.7); border-top: 1px solid var(--border); }
 .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-
 .info-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
 
-/* Enlace de WhatsApp Clicable */
-.contact-action-link {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    color: var(--text-main);
-    text-decoration: none;
-    transition: color 0.3s;
-}
+.contact-action-link { display: flex; align-items: center; gap: 1rem; color: var(--text-main); text-decoration: none; transition: color 0.3s; }
+.contact-action-link:hover { color: var(--secondary); }
 
-.contact-action-link:hover {
-    color: var(--secondary);
-}
-
-/* Iconos de contacto normales */
 .contact .info-item i {
-    width: 40px; 
-    height: 40px; 
-    background: var(--bg-dark); 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    border-radius: 50%; 
-    color: var(--secondary); 
-    font-size: 1.2rem;
-    flex-shrink: 0;
+    width: 40px; height: 40px; background: var(--bg-dark); display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; color: var(--secondary); font-size: 1.2rem; flex-shrink: 0;
 }
-
-/* WHATSAPP VERDE CLÁSICO */
 .contact .info-item .whatsapp-icon {
-    background: #25D366 !important; /* Verde oficial */
-    color: white !important;
-    font-size: 1.5rem !important;
-    box-shadow: 0 0 10px rgba(37, 211, 102, 0.4);
+    background: #25D366 !important; color: white !important; font-size: 1.5rem !important; box-shadow: 0 0 10px rgba(37, 211, 102, 0.4);
 }
 
 .social-links a { color: var(--text-main); font-size: 1.5rem; margin-right: 1rem; }
 .social-links a:hover { color: var(--secondary); transform: scale(1.1); }
 
-.contact-form { background: rgba(13, 17, 23, 0.7); padding: 2rem; border: 1px solid var(--border); border-radius: 8px; }
+.contact-form { background: rgba(13, 17, 23, 0.8); padding: 2rem; border: 1px solid var(--border); border-radius: 8px; }
 .form-group label { display: block; font-family: var(--font-mono); color: var(--secondary); font-size: 0.85rem; margin-bottom: 0.5rem; }
 .form-group input, .form-group textarea {
-    width: 100%; background: #0d1117; border: 1px solid var(--border);
-    color: #fff; padding: 10px; font-family: var(--font-mono); margin-bottom: 1.5rem;
-    outline: none;
+    width: 100%; background: #0d1117; border: 1px solid var(--border); color: #fff; padding: 10px; font-family: var(--font-mono); margin-bottom: 1.5rem; outline: none;
 }
 .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
 .btn-full { width: 100%; background: var(--accent); color: #000; font-weight: bold; border: none; }
@@ -794,40 +293,28 @@ header {
 
 footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.8rem; color: #8b949e; }
 
-/* Responsive */
+/* --- 10. RESPONSIVE --- */
 @media (max-width: 768px) {
     .hero { padding-top: 80px; }
     .hero-title { font-size: 2rem; }
     .contact-content { grid-template-columns: 1fr; display: flex; flex-direction: column; gap: 2rem; }
     .about-content { grid-template-columns: 1fr; display: block; text-align: center; }
     .about-image { margin: 0 auto 2rem auto; }
-    .about-text { text-align: center; }
+    .about-text { text-align: center; } /* En móvil se ve mejor centrado aunque el párrafo se justifique */
     .tech-stack-mini { justify-content: center; }
     
     .cert-link { text-align: left; } 
     .cert-container { margin: 2rem auto; }
     
-    /* Texto a la izquierda en móvil también para mantener justificación */
-    .hero-subtitle {
-        text-align: justify;
-    }
+    .hero-subtitle { text-align: justify; }
 
     .nav-links {
-        position: fixed;
-        background: var(--bg-dark);
-        height: 100vh;
-        width: 100%;
-        top: 0;
-        left: 0;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-        z-index: 999;
-        padding-top: 0;
+        position: fixed; background: rgba(13, 17, 23, 0.95); backdrop-filter: blur(10px);
+        height: 100vh; width: 100%; top: 0; left: 0;
+        flex-direction: column; align-items: center; justify-content: center;
+        transform: translateX(100%); transition: transform 0.3s ease-in-out;
+        z-index: 999; padding-top: 0;
     }
-
     .nav-links.active { transform: translateX(0%); }
     .nav-links li { margin: 1.5rem 0; }
     .code-link { font-size: 1.5rem; color: #fff; }
@@ -835,4 +322,3 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border);
     .hero-buttons { display: flex; flex-direction: column; gap: 1rem; }
     .btn-outline { margin-left: 0; }
 }
-```
